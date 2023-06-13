@@ -28,6 +28,7 @@ namespace Poker
             Baraja baraja = new Baraja();
             baraja.Barajar();
             
+            //Repartirmos la mano de cada jugador
             List<Mano> lstJugadores = new List<Mano>();
             for (int i = 1; i <= VariablesGlobales.NumeroJugadores; i++)
             {
@@ -36,18 +37,23 @@ namespace Poker
 
             while (bJugando)
             {
-                Console.Clear();
-                foreach (Mano i in lstJugadores) {
-                    Console.WriteLine("___________________________________________");
-                    Console.WriteLine(" Jugador " + i.Cartas[0].Jugador);
-                    Console.WriteLine("     Cartas en mano: ");
-                    i.Mostrar();
-                    Console.WriteLine(" ");
-                }
-                Console.WriteLine("___________________________________________");
+                MostrarManos(lstJugadores);   
                 Console.ReadKey();
-            }
-                
+            }                
         }
+        static void MostrarManos(List <Mano> lstJugadores)
+        {
+            Console.Clear();
+            foreach (Mano i in lstJugadores)
+            {
+                Console.WriteLine("___________________________________________");
+                Console.WriteLine(" Jugador " + i.Cartas[0].Jugador);
+                Console.WriteLine("     Cartas en mano: ");
+                i.Mostrar();               
+                Console.WriteLine(" ");
+            }
+            Console.WriteLine("___________________________________________");
+        }
+        
     }
 }

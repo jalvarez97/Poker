@@ -40,11 +40,10 @@ namespace Poker
                 case Figura.Picas:
                     sFiguraSimbolo = "♠";
                     break;
-                case Figura.Trebol:
+                case Figura.Treboles:
                     sFiguraSimbolo = "♣";
                     break;
             }
-            //return String.Format($"{Valor} {Palo} {sFiguraSimbolo}");
             return String.Format($"{Valor} {sFiguraSimbolo}");
         }
 

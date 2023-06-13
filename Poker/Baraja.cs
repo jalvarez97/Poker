@@ -21,7 +21,7 @@ namespace Poker
                     switch (Rango)
                     {
                         case 0:
-                            Valor = "As";
+                            Valor = "AS";
                             break;
                         case 10:
                             Valor = "J";
@@ -88,7 +88,7 @@ namespace Poker
             }
 
             return new Mano(lstMano);
-        }
+        }       
 
     }
 }
