@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using static Poker.VariablesGlobales;
 
 namespace Poker
@@ -11,32 +12,12 @@ namespace Poker
         private int nContador = 0;
 
         public Baraja()
-        {
-            string Valor = null;
-
+        {           
             for (int nFigura = 0; nFigura <= 3; nFigura++)
             {
                 for (int Rango = 0; Rango <= 12; Rango++)
                 {
-                    switch (Rango)
-                    {
-                        case 0:
-                            Valor = "AS";
-                            break;
-                        case 10:
-                            Valor = "J";
-                            break;
-                        case 11:
-                            Valor = "Q";
-                            break;
-                        case 12:
-                            Valor = "K";
-                            break;
-                        default:
-                            Valor = (Rango + 1).ToString();
-                            break;
-                    }
-                    Mazo.Add(new Carta(Valor, (Figura)nFigura, Rango + 1));
+                    Mazo.Add(new Carta(Carta.NumerosPoker(Rango), (Figura)nFigura, Rango + 1));
                 }
             }
         }
@@ -64,13 +45,12 @@ namespace Poker
             }
         }
 
-        public Carta PedirCarta(int nJugador)
+        public Carta PedirCarta()
         {
             if (nContador >= Mazo.Count)
                 return null;
 
             Carta oCarta = Mazo[nContador];
-            oCarta.Jugador = nJugador;
             nContador++;
             return oCarta;
         }
@@ -82,12 +62,14 @@ namespace Poker
 
             for (int i = 0; i < 5; i++)
             {
-                Carta oCartaActual = PedirCarta(nJugador);
+                Carta oCartaActual = PedirCarta();
                 if (oCartaActual != null)
                     lstMano.Add(oCartaActual);
             }
+            //Ordenamos las cartas
+            List<Carta> lstManoOrdenada = lstMano.OrderBy(x => x.Rango).ToList();
 
-            return new Mano(lstMano);
+            return new Mano(lstManoOrdenada, nJugador);
         }       
 
     }

@@ -10,9 +10,12 @@ namespace Poker
     internal class Mano
     {
         public List<Carta> Cartas = new List<Carta>();
-        public Mano(List<Carta> cartas)
+        public int Jugador { get; set; }
+
+        public Mano(List<Carta> cartas, int nJugador)
         {
             Cartas = cartas;
+            Jugador = nJugador; 
         }
 
         public void Mostrar()
@@ -30,6 +33,7 @@ namespace Poker
         {
             return true;
         }
+
         public static bool operator <(Mano a, Mano b)
         {
             return true;

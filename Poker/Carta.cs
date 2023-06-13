@@ -7,17 +7,7 @@ namespace Poker
     {
         public string Valor { get; set; }
         public Figura Palo { get; set; }
-        public int Rango { get; set; }
-
-        public int Jugador { get; set; }
-
-        public Carta(string valor, Figura figuras, int rango, int jugador)
-        {
-            Valor = valor;
-            Palo = figuras;
-            Rango = rango;
-            Jugador = jugador;
-        }
+        public int Rango { get; set; }        
 
         public Carta(string valor, Figura figuras, int rango)
         {
@@ -47,6 +37,29 @@ namespace Poker
             return String.Format($"{Valor} {sFiguraSimbolo}");
         }
 
+        public static string NumerosPoker(int nRango)
+        {
+            string sValor = null;
+            switch (nRango)
+            {
+                case 0:
+                    sValor = "AS";
+                    break;
+                case 10:
+                    sValor = "J";
+                    break;
+                case 11:
+                    sValor = "Q";
+                    break;
+                case 12:
+                    sValor = "K";
+                    break;
+                default:
+                    sValor = (nRango + 1).ToString();
+                    break;
+            }
+            return sValor;
+        }
         public static bool operator <(Carta a, Carta b)
         {
             return a.Rango < b.Rango;

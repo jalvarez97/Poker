@@ -7,35 +7,36 @@ using static Poker.VariablesGlobales;
 
 namespace Poker
 {
-    public enum Jugadas
-    {
-        Nada
-      , Pareja
-      , DoblePareja
-      , Trio
-      , Escalera
-      , Color
-      , FullHouse
-      , Poker
-      , EscaleraColor
-      , EscaleraReal
-    }
-
-    public struct ValorMano
-    {
-        public int Total { get; set; }
-        public int CartaMasAlta { get; set; }
-
-    }
-
+    
     internal class ManoJugada 
     {
+        public enum Jugadas
+        {
+            Nada
+          , Pareja
+          , DoblePareja
+          , Trio
+          , Escalera
+          , Color
+          , FullHouse
+          , Poker
+          , EscaleraColor
+          , EscaleraReal
+        }
+
+        public struct ValorMano
+        {
+            public int Total { get; set; }
+            public int CartaMasAlta { get; set; }
+
+        }
+
         private int nSumaDiamantes;
         private int nSumaCorazones;
         private int nSumaTreboles;
         private int nSumaPicas;
         private List<Carta> lstCartas;
-        private ValorMano valorMano;
+        public ValorMano valorMano;
 
         public ManoJugada(List<Carta> manoJugador) 
         {
@@ -103,7 +104,7 @@ namespace Poker
                 && lstCartas[0].Rango == lstCartas[3].Rango)
             {
                 valorMano.Total = lstCartas[1].Rango * 4;
-                valorMano.Total = lstCartas[4].Rango;
+                valorMano.CartaMasAlta = lstCartas[4].Rango;
                 return true;
             }
             else if(lstCartas[1].Rango == lstCartas[2].Rango
@@ -111,7 +112,7 @@ namespace Poker
                     && lstCartas[1].Rango == lstCartas[4].Rango)
             {
                 valorMano.Total = lstCartas[1].Rango * 4;
-                valorMano.Total = lstCartas[0].Rango;
+                valorMano.CartaMasAlta = lstCartas[0].Rango;
                 return true;
             }
 
@@ -126,12 +127,16 @@ namespace Poker
             if(lstCartas[0].Rango == lstCartas[1].Rango
                 && lstCartas[0].Rango == lstCartas[2].Rango
                 && lstCartas[3].Rango == lstCartas[4].Rango
-                && lstCartas[0].Rango == lstCartas[1].Rango
-                && lstCartas[2].Rango == lstCartas[3].Rango
-                && lstCartas[2].Rango == lstCartas[4].Rango)
+                )
             {
                 valorMano.Total = (lstCartas[0].Rango) + (lstCartas[1].Rango) + (lstCartas[2].Rango)
                                 + (lstCartas[3].Rango) + (lstCartas[4].Rango);
+                return true;
+            }
+            else if (lstCartas[0].Rango == lstCartas[1].Rango
+                     && lstCartas[2].Rango == lstCartas[3].Rango
+                     && lstCartas[2].Rango == lstCartas[4].Rango)
+            {
                 return true;
             }
             return false;
