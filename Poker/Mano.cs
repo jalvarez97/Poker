@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using static Poker.ManoJugada;
 
 namespace Poker
@@ -11,6 +8,7 @@ namespace Poker
     internal class Mano
     {
         public List<Carta> Cartas = new List<Carta>();
+
         public int Jugador { get; set; }
 
         public Mano(List<Carta> cartas, int nJugador)

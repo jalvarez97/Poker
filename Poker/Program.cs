@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static Poker.ManoJugada;
-using static Poker.VariablesGlobales;
 
 namespace Poker
 {
@@ -15,7 +7,7 @@ namespace Poker
     {
         static void Main(string[] args)
         {
-            bool bJugando = true;            
+            bool bJugando = true;                       
 
             Console.WriteLine("Introduce el numero de jugadores:");
             while (VariablesGlobales.NumeroJugadores == 1 || VariablesGlobales.NumeroJugadores > 5)
@@ -50,12 +42,5 @@ namespace Poker
                 }
             }                
         }
-        
-       
-
-        
-
-        
-
     }
 }

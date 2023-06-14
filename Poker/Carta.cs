@@ -5,6 +5,7 @@ namespace Poker
 {
     internal class Carta
     {
+
         public string Valor { get; set; }
         public Figura Palo { get; set; }
         public int Rango { get; set; }        
@@ -60,6 +61,7 @@ namespace Poker
             }
             return sValor;
         }
+
         public static bool operator <(Carta a, Carta b)
         {
             return a.Rango < b.Rango;

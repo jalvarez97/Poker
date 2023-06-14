@@ -12,7 +12,7 @@ namespace Poker
         private int nContador = 0;
 
         public Baraja()
-        {           
+        {
             for (int nFigura = 0; nFigura <= 3; nFigura++)
             {
                 for (int Rango = 0; Rango <= 12; Rango++)
@@ -58,7 +58,7 @@ namespace Poker
         public Mano PedirMano(int nJugador)
         {
             List<Carta> lstMano = new List<Carta>();
-           
+
 
             for (int i = 0; i < 5; i++)
             {
@@ -70,7 +70,7 @@ namespace Poker
             List<Carta> lstManoOrdenada = lstMano.OrderBy(x => x.Rango).ToList();
 
             return new Mano(lstManoOrdenada, nJugador);
-        }       
+        }
 
     }
 }
