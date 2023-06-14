@@ -8,7 +8,7 @@ namespace Poker
     internal class Baraja
     {
 
-        private List<Carta> Mazo = new List<Carta>();
+        public List<Carta> Mazo = new List<Carta>();
         private int nContador = 0;
 
         public Baraja()
