@@ -44,7 +44,7 @@ namespace Poker
             switch (nRango)
             {
                 case 0:
-                    sValor = "AS";
+                    sValor = "AS";                    
                     break;
                 case 10:
                     sValor = "J";

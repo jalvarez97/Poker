@@ -17,7 +17,10 @@ namespace Poker
             {
                 for (int Rango = 0; Rango <= 12; Rango++)
                 {
-                    Mazo.Add(new Carta(Carta.NumerosPoker(Rango), (Figura)nFigura, Rango + 1));
+                    if(Rango == 0)
+                        Mazo.Add(new Carta(Carta.NumerosPoker(Rango), (Figura)nFigura, 14));
+                    else
+                        Mazo.Add(new Carta(Carta.NumerosPoker(Rango), (Figura)nFigura, Rango + 1));                    
                 }
             }
         }
